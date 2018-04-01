@@ -1,0 +1,196 @@
+/* materialize.min.css */
+
+#letsGetStarted{
+  opacity: 1;
+  height: auto;
+  transition: .3s;
+}
+#cities{
+    float:left;
+}
+#interests{
+    float:left;
+}
+
+#interestDiv, #cityDiv, #dateDiv{
+  /* to get this element to fade out when the user clicks Continue
+  we need to set the value of the property we're going to change
+  in loadViews.js. in this case opacity */
+  opacity: 0;
+  margin-top: 50px;
+}
+
+.custom-header{
+
+}
+.custom-button{
+  /* background-color: #E08DAC !important; */
+  margin-bottom: 20px;
+}
+.interestTitle {
+    text-align: center;
+}
+
+.container {
+    align-items: center;
+    width: 90%;
+}
+
+#results {
+    text-align: center;
+}
+
+#map {
+    height: 80vh;
+    width: 100%;
+}
+
+.map-zoom-out-button{
+  position: fixed;
+  top: 50%;
+  left: 200px;
+}
+.infoContainer{
+  position: fixed;
+  z-index:1000;
+  background: #f9f9f9;
+  opacity: 0;
+  transition: .3s;
+  border-radius: 4px;
+}
+.dateWindowsContainer{
+  width: 600px;
+  top: 100px;
+  left: 50px;
+}
+
+.hotelAndFlightContainer{
+  width: 400px;
+  bottom: 180px;
+  left: 50px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.datewindow, .resetMap{
+  margin: 0 0 10px 10px;
+  text-transform: capitalize;
+}
+
+.vacaDesc{
+  width: 400px;
+  padding: 7px;
+  margin: 0;
+  font-size: 15px;
+}
+#main-container{
+  height: 80vh;
+  width: 100%;
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #f9f9f9;
+  border-radius: 4px;
+  opacity: .7;
+}
+
+#vacationSummary{
+
+}
+.cityName{
+  padding: 10px;
+  margin: 0;
+  text-transform: capitalize;
+}
+.custom-input-container{
+  background-color: #f9f9f9;
+  margin-top: 50px;
+  border-radius: 4px;
+  transition: all .3s;
+}
+
+.custom-hidden{
+  display: none;
+}
+
+.margin30{
+  margin: 30px;
+}
+.custom-width-85{
+  max-width: 85%;
+  margin: auto;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    min-height: 90vh;
+    flex: 1 0 auto;
+  }
+  .custom-header{
+    font-size: 100px;
+    transition: .2s;
+  }
+  #SEARCH {
+    color: #1BE7FF;
+  }
+
+  #SIMPLIFY {
+    color: #6EEB83;
+  }
+  #SAVE {
+    color: #E4FF1A;
+  }
+#Bout {
+  align-content: left;
+  color: #FF9800;
+}
+
+#start{
+color: #29B6F6
+}
+
+#stuff{
+  font-size: 20px;
+}
+
+#welcomeStart{
+  padding-top: 30px;
+}
+
+#back1{
+  background-color: #29B6F6;
+}
+#back2{
+  background-color: #29B6F6;
+}
+#back3{
+  background-color: #29B6F6;
+}
+#back4{
+  background-color: #29B6F6;
+}
+
+@media screen and (max-width: 1290px){
+  .custom-header{
+    font-size: 70px;
+  }
+}
+@media screen and (max-width: 800px){
+  .custom-header{
+    font-size: 60px;
+  }
+}
