@@ -1,5 +1,21 @@
 // this file is solely for converting form inputs into localstorage
 $(document).ready(function () {
+    console.log("application.js is linked")
+    /**HomeLocation Code**********/
+    /*if the homeCity is set, put it in the field*/
+    if(localStorage.getItem("homeCity")!=="undefined"){
+        $("#homeresp").html(localStorage.getItem("homeCity"))
+    }else{
+        $("#homeresp").html("enter your home city")
+    };
+    $("#homeBtn").on("click", function () {
+            var homeCity = $("#home").val().trim();
+            console.log(homeCity);
+            // add to local storage
+            localStorage.setItem("homeCity", homeCity)     
+    });
+
+
     $("#cityBtn").on("click", function () {
         var cities = [];
         $(".city").each(function () {
@@ -94,16 +110,7 @@ $(document).ready(function () {
     });
 
 
-    //************
-    //HomeLocation Code
-    //************
-    $("#homeBtn").on("click", function () {
-        console.log("button worked and files are linked")
-        var homeCity = $("#home").val().trim();
-        console.log(homeCity);
-        // add to local storage
-        localStorage.setItem("homeCity", homeCity)
-    });
+
     //************
     //get Long and Lat of current computer location
     //************
