@@ -14,7 +14,6 @@ $(document).ready(() => {
     localStorage.setItem('cities', JSON.stringify(cities));
     console.log(localStorage);
   });
-
   // Interests
   $('#interestBtn').on('click', () => {
     const interests = [];
@@ -22,7 +21,7 @@ $(document).ready(() => {
     const categories = ['music', 'sports', 'theater'];
     $('.interest').each(function() {
       if ($(this).val() !== '') {
-        for (let i = 0; i < categories.length; i++) {
+        for (let i = 0; i < categories.length; i += 1) {
           if ($(this).hasClass(categories[i])) {
             const cat = categories[i];
             interest = {
@@ -40,9 +39,8 @@ $(document).ready(() => {
     localStorage.setItem('interests', JSON.stringify(interests));
   });
 
-  //* ***********
   // DATE and range code
-  //* ***********
+
   $('.datepicker').pickadate({
     // selectMonths: true,// Creates a dropdown to control month
     // selectYears: 15 // Creates a dropdown of 15 years to control year,
@@ -96,9 +94,8 @@ $(document).ready(() => {
     // LETS CONVERT THESE
   });
 
-  //* ***********
   // HomeLocation Code
-  //* ***********
+
   $('#homeBtn').on('click', () => {
     console.log('button worked and files are linked');
     const homeCity = $('#home')
@@ -108,14 +105,15 @@ $(document).ready(() => {
     // add to local storage
     localStorage.setItem('homeCity', homeCity);
   });
-  //* ***********
+
   // get Long and Lat of current computer location
-  //* ***********
+
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       x.innerHTML = 'Geolocation is not supported by this browser.';
+    }
   }
 
   // lat and long positions happen behind the scenes
@@ -127,8 +125,6 @@ $(document).ready(() => {
     const latlon = `${position.coords.latitude},${position.coords.longitude}`;
   }
 
-  //* ***********
   // Take Long and Lat of current computer location and get city and airport code
   // no code yet
-  //* ***********
 });
