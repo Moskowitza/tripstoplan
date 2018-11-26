@@ -96,6 +96,7 @@ $(document).ready(() => {
     // LETS CONVERT THESE
   });
 
+<<<<<<< HEAD
   //* ***********
   // HomeLocation Code
   //* ***********
@@ -116,6 +117,19 @@ $(document).ready(() => {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       x.innerHTML = 'Geolocation is not supported by this browser.';
+
+
+
+    //************
+    //get Long and Lat of current computer location
+    //************
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+
     }
   }
   // lat and long positions happen behind the scenes
