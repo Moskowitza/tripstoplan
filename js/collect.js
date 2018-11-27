@@ -2,6 +2,7 @@ console.log("connected to collectjs");
 const homeBtn = document.querySelector("#homeBtn");
 const homeTown = JSON.parse(localStorage.getItem("homeTown")) || [];
 const cityBtn = document.querySelector("#cityBtn");
+const interestBtn = document.querySelector("#interestBtn");
 function addHomeTown(e) {
   e.preventDefault;
   const homeTown = document.querySelector("[name=hometown]").value.trim();
@@ -37,6 +38,10 @@ function addDestinations(e) {
   // localStorage.setItem("destinations", JSON.stringify(destinations));
   return;
 }
+function addInterests(e) {
+  e.preventDefault;
+}
 
 homeBtn.addEventListener("click", addHomeTown);
 cityBtn.addEventListener("click", addDestinations);
+interestBtn.addEventListener("click", addInterests);
