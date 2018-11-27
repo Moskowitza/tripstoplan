@@ -1,18 +1,27 @@
 // this file is solely for converting form inputs into localstorage
 $(document).ready(function () {
     console.log("application.js is linked")
+    $('input.autocomplete').autocomplete({
+        data: {
+            "Apple": null,
+            "Microsoft": null,
+            "Google": 'https://placehold.it/250x250'
+        },
+    });
+
+    
     /**HomeLocation Code**********/
     /*if the homeCity is set, put it in the field*/
-    if(localStorage.getItem("homeCity")!=="undefined"){
+    if (localStorage.getItem("homeCity") !== "undefined") {
         $("#homeresp").html(localStorage.getItem("homeCity"))
-    }else{
-        $("#homeresp").html("enter your home city")
+    } else {
+        $("#homeresp").html("home city")
     };
     $("#homeBtn").on("click", function () {
-            var homeCity = $("#home").val().trim();
-            console.log(homeCity);
-            // add to local storage
-            localStorage.setItem("homeCity", homeCity)     
+        var homeCity = $("#home").val().trim();
+        console.log(homeCity);
+        // add to local storage
+        localStorage.setItem("homeCity", homeCity)
     });
 
 
@@ -71,8 +80,8 @@ $(document).ready(function () {
         var departureDates = [];
         var hotelRanges = [];
         $(".date").each(function () {
-          // convert date for eventful api format
-          // and different format for amadeus api
+            // convert date for eventful api format
+            // and different format for amadeus api
             if ($(this).val() !== "") {
                 var date = $(this).val();
                 var ourFormat = "DDMMMMY";
@@ -92,8 +101,8 @@ $(document).ready(function () {
                     endDate: eventEndDate,
                 };
                 var hotelRange = {
-                  startDate: departureDate,
-                  endDate: hotelEndDate,
+                    startDate: departureDate,
+                    endDate: hotelEndDate,
                 }
                 hotelRanges.push(hotelRange)
                 eventfulRanges.push(eventfulRange)
