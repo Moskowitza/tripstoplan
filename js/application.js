@@ -1,7 +1,17 @@
 // this file is solely for converting form inputs into localstorage
-/* globals moment */
-import moment from "moment";
+// import moment from "moment";
+
+// HomeLocation Code
 $(document).ready(() => {
+  $("#homeBtn").on("click", () => {
+    const homeCity = $("#home")
+      .val()
+      .trim();
+    console.log(homeCity);
+    // add to local storage
+    localStorage.setItem("homeCity", JSON.stringify(homeCity));
+  });
+
   $("#cityBtn").on("click", () => {
     const cities = [];
     $(".city").each(function() {
@@ -13,7 +23,7 @@ $(document).ready(() => {
       }
     });
     localStorage.setItem("cities", JSON.stringify(cities));
-    console.log(localStorage);
+    console.log(`local storage ${localStorage}`);
   });
   // Interests
   $("#interestBtn").on("click", () => {
@@ -35,7 +45,7 @@ $(document).ready(() => {
         }
       }
     });
-    console.log(interests);
+    console.log(`interests ${interests}`);
     // add to local storage
     localStorage.setItem("interests", JSON.stringify(interests));
   });
@@ -93,18 +103,6 @@ $(document).ready(() => {
     localStorage.setItem("departureDates", JSON.stringify(departureDates));
     localStorage.setItem("duration", JSON.stringify(vacaLength));
     // LETS CONVERT THESE
-  });
-
-  // HomeLocation Code
-
-  $("#homeBtn").on("click", () => {
-    console.log("button worked and files are linked");
-    const homeCity = $("#home")
-      .val()
-      .trim();
-    console.log(homeCity);
-    // add to local storage
-    localStorage.setItem("homeCity", homeCity);
   });
 
   // get Long and Lat of current computer location

@@ -1,8 +1,34 @@
 const displayCities = JSON.parse(localStorage.cities);
+console.log("display cities ${displayCities}");
 const coordsList = [];
 let eventMarkers = [];
 let globalInfoWindow;
 // vacations = JSON.parse(vacations)
+function getCoords(displayCities, callback) {
+  city = displayCities.shift();
+  $.ajax({
+    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${
+      city.cityName
+    }&key=AIzaSyCYUN28qqTKuwxF_I12PmuRvAQ6MqbmUDk&callback`
+  })
+    .done(result => {
+      console.log(result);
+      coords = result.geometry.location;
+      lat = coords.lat;
+      lng = coords.lng;
+      coords = { lat, lng };
+      coordsList.push(coords);
+      if (displayCities.length !== 0) {
+        getCoords(displayCities, callback);
+      } else {
+        console.log(coordsList);
+        callback();
+      }
+    })
+    .fail(error => {
+      console.log(error);
+    });
+}
 
 // playing with changing data to see what happens
 
@@ -24,7 +50,7 @@ function initMap() {
         city: city.cityName,
         title: `See your vacation in ${city.cityName}`
       });
-      // set up an event listner for each pin we drop.
+      // set up an event listener for each pin we drop.
       // if the user clicks that pin zoom in
       cityMarker.addListener("click", () => {
         let zoomLevel = 5;
@@ -77,17 +103,18 @@ function getCoords(displayCities, callback) {
     }&key=AIzaSyCYUN28qqTKuwxF_I12PmuRvAQ6MqbmUDk&callback`
   })
     .done(result => {
-      coords = result.results[0].geometry.location;
-      lat = coords.lat;
-      lng = coords.lng;
-      coords = { lat, lng };
-      coordsList.push(coords);
-      if (displayCities.length !== 0) {
-        getCoords(displayCities, callback);
-      } else {
-        console.log(coordsList);
-        callback();
-      }
+      console.log(result);
+      // coords = result.geometry.location;
+      // lat = coords.lat;
+      // lng = coords.lng;
+      // coords = { lat, lng };
+      // coordsList.push(coords);
+      // if (displayCities.length !== 0) {
+      //   getCoords(displayCities, callback);
+      // } else {
+      //   console.log(coordsList);
+      //   callback();
+      // }
     })
     .fail(error => {
       console.log(error);
