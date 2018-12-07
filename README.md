@@ -1,1 +1,1 @@
-[demo](https://moskowitza.github.io/js30/34_TripLayout/)
+[demo](https://moskowitza.github.io/tripstoplan/)
